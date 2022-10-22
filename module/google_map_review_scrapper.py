@@ -47,8 +47,6 @@ def get_page_content(url, scroll_limit=5):
         last_height = new_height
     
     raw_data = driver.find_elements(By.XPATH, gooegle_review_section_path)
-    list_data = [data.text for data in raw_data]
-    data = [data.split('\n') for data in list_data]
     time.sleep(3)
 
     return raw_data
