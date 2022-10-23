@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 
 import time
 import pandas as pd
+import os
 
 chrome_service = Service('/usr/bin/chromedriver')
 options = webdriver.ChromeOptions()
@@ -74,8 +75,13 @@ def get_review(page_content):
         'username': usernames,
         'review': reviews
     }
+
     return data
 
 def to_dataframe(data):
     df_review = pd.DataFrame(data)
     return df_review
+
+def to_csv(data):
+    os.makedirs('dataset', exist_ok=True)
+    data.to_csv('dataset/review.csv')
