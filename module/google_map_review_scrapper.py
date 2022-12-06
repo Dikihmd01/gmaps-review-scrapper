@@ -10,12 +10,12 @@ chrome_service = Service('/usr/bin/chromedriver')
 options = webdriver.ChromeOptions()
 driver = webdriver.Chrome(service=chrome_service, options=options)
 
-def get_page_content(url, scroll_limit=5):
+def get_page_content(url, scroll_limit=2):
     number = 0
     last_height = driver.execute_script('return document.body.scrollHeight')
 
     btn_sort_xpath = '//*[@id="QA0Szd"]/div/div/div[1]/div[2]/div/div[1]/div/div/div[2]/div[7]/div[2]/button'
-    newest_list_item_xpath = '//li[@data-index="1"]'
+    newest_list_item_xpath = '//div[@data-index="1"]'
     scroll_element_xpath = '//*[@id="QA0Szd"]/div/div/div[1]/div[2]/div/div[1]/div/div/div[2]'
     gooegle_review_section_path = '//*[@id="QA0Szd"]/div/div/div[1]/div[2]/div/div[1]/div/div/div[2]/div[9]'
 
